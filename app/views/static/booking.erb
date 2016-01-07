@@ -3,6 +3,14 @@
 		<input type=test placeholder="How many days?" name="book"><br>
 		<input type=submit value="Book this property">
 </form>
+<h2>Booking history</h2>
+<%if @properties.bookings.any?%>
+<%@properties.bookings.each do |b|%>
+<div>
+	<%=b.booking%>
+</div>
+<%end%>
+<%end%>
 
 
 

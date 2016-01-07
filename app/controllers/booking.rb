@@ -4,7 +4,7 @@ require_relative '../models/booking'
 
 	post '/properties/bookings/:property_id' do
 	#byebug
-	@bookings = Booking.create(booking: params[:booking], user_id: session[:user_id], property_id: params[:property_id])
+	@bookings = Booking.create(booking: params[:book], user_id: session[:user_id], property_id: params[:property_id])
 	#byebug
 	redirect to "/properties/bookings/#{params[:property_id]}"
 	# redirect to '/properties/bookings/vcvcvc'
@@ -13,14 +13,13 @@ require_relative '../models/booking'
 	#redirect to '/questions'
 	# else 
 	# 	p "Error, please try again"
-	# end 	
+	# end
 	#when you redirect, you need to redirect to a complete string
 	#
 end 
 
 # authentication method is below 
-get '/properties/bookings/:property_id' do 
+get '/properties/bookings/:property_id' do
 	@properties = Property.find(params[:property_id])
 	erb :"static/booking"
 end 
-
