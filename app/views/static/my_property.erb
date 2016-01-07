@@ -1,0 +1,13 @@
+<% @my_properties.each do |p| %>
+<div>
+<a href ="/properties/<%=@current_user%>"><%=p.property%></a>
+<form method="post" action="/properties/<%=p.id%>">
+	<input name="_method" type="hidden" value="delete"/>
+	<button>Delete</button>
+</form>
+<form method="post" action="/properties/<%=p.id%>">
+	<input name="_method" type="hidden" value="patch">
+	<textarea name="update"><%= p.property %></textarea>
+	<input type="submit" value="Update">
+</form>
+<% end %>

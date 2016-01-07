@@ -17,6 +17,8 @@ gem 'sinatra-activerecord'
 
 # Adding Database elements
 gem 'pg'
+gem 'bcrypt'
+gem 'byebug'
 
 # Adding rake for management
 gem 'rake'

@@ -1,0 +1,28 @@
+<h1>You are successfully logged in!!</h1>
+<!-- <form method=get action=/signout>
+		<input type=submit value="Sign out">
+</form> -->
+<!-- <a href="/session/destroy"><button>Logout</button></a> -->
+<a href="/properties/<%=@current_user%>"><button>Your own Properties</button></a>
+<a href="/properties/bookings/<%=@current_user%>"><button>Your own Bookings</button></a>
+
+
+<form method="post" action="/session/destroy">
+	<input name="_method" type="hidden" value="delete"/>
+	<button>Logout</button>
+</form>
+
+<h1>Please view the available properties, and click to book</h1>
+<form method="post" action="/properties">
+		<input type=test placeholder="Property" name="property"><br>
+		<input type=submit value="Submit your property">
+</form>
+
+<% @properties.each do |p| %>
+<div>
+<a href ="/properties/bookings/<%=p.id%>"><%= p.property %></a>
+</div>
+<% end %>
+
+
+
